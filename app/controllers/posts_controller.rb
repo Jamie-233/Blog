@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :update, :edit, :destroy]
+  before_action :authenticate_admin!, except: [:index, :show]
 
   def index
     @categories = Category.all
