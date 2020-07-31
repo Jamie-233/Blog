@@ -1,8 +1,6 @@
-<p>find me app/views/phones/index.html.erb</p>
-<p id="notice"><%= notice %></p>
-
 <h1>List</h1>
-
+<p id="notice"><%= notice %></p>
+<p>find me app/views/phones/index.html.erb</p>
 <table>
   <thead>
     <tr>
@@ -14,14 +12,33 @@
   <tbody>
     <% @phones.each do |phone| %>
       <tr>
-        <td><%= phone.name %></td>
-        <td><%= link_to 'Show', phone %></td>
-        <td><%= link_to 'Edit', edit_phone_path(phone) %></td>
-        <td><%= link_to 'Destroy', phone, method: :delete, data: { confirm: '确定删除?' } %></td>
+        <td>id: <%=phone.id %></td>
+        <td>手机名: <%= phone.name %></td>
+        <td><%= link_to '详情', phone %></td>
+        <td><%= link_to '编辑', edit_phone_path(phone) %></td>
+        <td><%= link_to '删除', phone, method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<button type="button" class="btn btn-primary"><%= link_to '创建', new_phone_path %></button>
+<%= link_to '创建', new_phone_path, class:"btn btn-primary" %>
+<div class="media">
+  <img src="https://secure.gravatar.com/avatar/8761ca03be5665e51d9d49c5ce8dee37?s=49&d=mm&r=g" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">Media heading</h5>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <div class="media mt-3">
+      <a class="mr-3" href="#">
+        <img src="https://secure.gravatar.com/avatar/8761ca03be5665e51d9d49c5ce8dee37?s=49&d=mm&r=g" class="mr-3" alt="...">
+      </a>
+      <div class="media-body">
+        <h5 class="mt-0">Media heading</h5>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+</script>

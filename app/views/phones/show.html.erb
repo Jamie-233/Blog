@@ -1,10 +1,11 @@
 <% provide(:title, '手机列表') %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @phone.name %>
-</p>
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, class: "alert alert-success" %>
+<% end %>
 
-<%= link_to 'Edit', edit_phone_path(@phone) %> |
-<%= link_to 'Back', phones_path %>
+<p><strong>Name:</strong><%= @phone.name %></p>
+<p>创建时间: <%= @phone.created_at %></p>
+<%= link_to '编辑', edit_phone_path(@phone) %> | 
+<%= link_to '返回', phones_path %>
