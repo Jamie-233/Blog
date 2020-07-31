@@ -21,6 +21,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.reuire(:user).permit(:name :email)
+    params.reuire(:user).permit(:name, :email)
   end
 end
