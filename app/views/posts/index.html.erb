@@ -1,1 +1,43 @@
-<h1>123</h1>
+<section class="section">
+  <div class="container">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile is-parent">
+          <article class="tile is-child">
+            <div class="content">
+              <% @posts.each do |post| %>
+                <div class="card">
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+                        <p class="title is-4"><%= link_to post.title, post %></p>
+                      </div>
+                    </div>
+                    <div class="content"><%= post.content %></div>
+                    <!-- <div class="comment-count">
+                      <span class="tag is-rounded"><%# comment count %></span>
+                    </div> -->
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="container" style="height: 300px;">
+        <div class="tile is-parent">
+          <article class="tile is-child notification is-info">
+            <div class="types">
+              <p class="title">类别</p>
+              <a>Ruby on Rails</a>
+              <a>Python</a>
+              <a>JavaScriat</a>
+              <a>Linux</a>
+              <a>Other</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
