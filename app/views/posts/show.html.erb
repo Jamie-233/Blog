@@ -25,12 +25,12 @@
 </section>
 <section class="section comments">
   <div class="container">
-    <h2 class="subtitle is-5"><strong><%#<%= @post.comments.count %></strong> 评论</h2>
-    <%#<%= render @post.comments %>
+    <h2 class="subtitle is-5"><strong><%= @post.comments.count %></strong> 评论</h2>
+    <%= render @post.comments %>
     <div class="commnet-form">
       <hr />
       <h3 class="subtitle is-3">评论区</h3>
-      <%#<%= render 'comments/form' %>
+      <%= render 'comments/form' %>
     </div>
   </div>
 </section>
