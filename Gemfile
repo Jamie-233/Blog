@@ -29,8 +29,17 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-# Use BootStrap Beautify Website
+
+# Bulma CSS
+gem 'bulma-rails', '~> 0.9.0'
+
+# Simple From
+# command: rails generate simple_form:install
+gem 'simple_form', '~> 5.0', '>= 5.0.2'
+
+# BootStrap CSS
 gem 'bootstrap', '~> 4.5'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -52,6 +61,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard', '~> 2.16', '>= 2.16.2'
+  # Guard::LiveReload automatically reloads your browser when 'view' files are modified
+  # command: (1) guard init livereload
+  # command: (2) bundle exec guard
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  # Make errirs better looking
+  gem 'better_errors', '~> 2.7', '>= 2.7.1'
 end
 
 group :test do
