@@ -11,20 +11,12 @@
 
   <body>
     <section class="hero is-primary">
-    <!-- Hero head: will stick at the top -->
     <div class="hero-head">
       <nav class="navbar">
         <div class="container">
           <div class="navbar-brand">
-            <%# <%= link_to image_tag("https://bulma.io/images/bulma-type-white.png", border: 0, alt: 'logo'), root_path, class: "navbar-item" %>
-            <a class="navbar-item" href="/">
-              <%= image_tag("bulma.png", :alt => "Logo") %>
-            </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
+            <a class="logo" href="/">简存</a>
+            <!-- <a class="navbar-item" href="/"><%# <%= image_tag("bulma.png", :alt => "Logo") %> %></a> -->
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
@@ -33,37 +25,21 @@
               <!-- <a class="navbar-item is-active">Home</a> -->
               <a class="navbar-item">Documentation</a>
               <a class="navbar-item">About</a>
-              <!-- <span class="navbar-item">
-                <a class="button is-primary is-inverted">
-                  <span class="icon">
-                    <i class="fab fa-github"></i>
-                  </span>
-                  <span>Download</span>
-                </a>
-              </span> -->
             </div>
           </div>
         </div>
       </nav>
     </div>
-
-    <!-- Hero footer: will stick at the bottom -->
-    <!-- <div class="hero-foot">
-      <nav class="tabs">
-        <div class="container">
-          <ul>
-            <li class="is-active"><a>Overview</a></li>
-            <li><a>Modifiers</a></li>
-            <li><a>Grid</a></li>
-            <li><a>Elements</a></li>
-            <li><a>Components</a></li>
-            <li><a>Layout</a></li>
-          </ul>
-        </div>
-      </nav>
-    </div> -->
     </section>
     <%= yield %>
     <%# <%= Time.now %>
+    <script type="text/javascript">
+      const logo = document.querySelector('.logo');
+      logo.innerHTML = wrapWithSpan(logo.textContent);
+
+      function wrapWithSpan(word) {
+        return [...word].map(letter => `<span>${letter}</span>`).join(' ');
+      }
+    </script>
   </body>
 </html>
