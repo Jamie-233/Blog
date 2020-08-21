@@ -7,15 +7,19 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <section class="hero is-primary">
     <div class="hero-head">
-      <nav class="navbar">
+      <nav class="navbar fixed-top sticky-top">
         <div class="container">
           <div class="navbar-brand">
-            <a class="logo" href="/">简存</a>
+            <a class="logo" href="/">
+              <span>简</span>
+              <span>存</span>
+            </a>
             <!-- <a class="navbar-item" href="/"><%# <%= image_tag("bulma.png", :alt => "Logo") %> %></a> -->
           </div>
           <div id="navbarMenuHeroA" class="navbar-menu">
@@ -33,13 +37,5 @@
     </section>
     <%= yield %>
     <%# <%= Time.now %>
-    <script type="text/javascript">
-      const logo = document.querySelector('.logo');
-      logo.innerHTML = wrapWithSpan(logo.textContent);
-
-      function wrapWithSpan(word) {
-        return [...word].map(letter => `<span>${letter}</span>`).join(' ');
-      }
-    </script>
   </body>
 </html>

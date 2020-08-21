@@ -2,7 +2,17 @@ class PostsController < ApplicationController
   before_action :find_post, only: [:show, :update, :edit, :destroy]
 
   def index
-    @posts = Post.all.order("created_at DESC")
+    @categories = Category.all
+
+    cate = params[:cate]
+    puts 'params', params
+    puts 'cate', cate
+
+    if !cate.nil?
+      @posts = Post.where(:category_id => cate)
+    else
+      @posts = Post.all.order("created_at DESC")
+    end
   end
 
   def new
@@ -45,7 +55,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :category_id)
   end
 
   def find_post
