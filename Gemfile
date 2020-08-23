@@ -40,6 +40,9 @@ gem 'simple_form', '~> 5.0', '>= 5.0.2'
 # BootStrap CSS
 gem 'bootstrap', '~> 4.5'
 
+# User Authentication
+gem 'devise'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

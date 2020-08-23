@@ -25,7 +25,13 @@
           <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-end">
               <%= link_to "Home", root_path, class: "navbar-item" %>
-              <%= link_to "Create", new_post_path, class: "navbar-item" %>
+              <% if user_signed_in? %>
+
+                <%= link_to "Create", new_post_path, class: "navbar-item" %>
+              <% else %>
+                <%= link_to "Login", new_admin_session_path , class: 'navbar-item' %>
+                <%= link_to "Sing up", new_admin_registration_path, class: "navbar-item" %>
+              <% end %>
               <!-- <a class="navbar-item is-active">Home</a> -->
               <a class="navbar-item">Documentation</a>
               <a class="navbar-item">About</a>
@@ -35,6 +41,9 @@
       </nav>
     </div>
     </section>
+    <% if notice %><div class="notification is-primary is-light"><strong><%= notice %></strong></div><% end %>
+    <% if alert %><div class="notification is-danger is-light"><strong><%= alert %></strong></div><% end %>
+    <%= %>
     <%= yield %>
     <%# <%= Time.now %>
   </body>
