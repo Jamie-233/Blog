@@ -13,98 +13,156 @@
  *= require_tree .
  *= require_self
  */
- @import "bulma";
-
  // @import "bootstrap";
+@import "bulma";
 
- .category {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    border-radius: 0.25rem;
+
+$device-width: 500px;
+@media (min-width: $device-width) {
+  .navbar > .container .navbar-brand, .container > .navbar .navbar-brand {
+    margin-left: 0;
   }
-  .card-header {
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 0;
-    background-color: rgba(0, 0, 0, 0.03);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  }
-  .list-group {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    border-radius: 0.25rem;
-  }
-  .list-group-item + .list-group-item {
-    border-top-width: 0;
-  }
-  .list-group-item {
-    position: relative;
-    display: block;
-    padding: 0.75rem 1.25rem;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-  }
-  .list-group-item:last-child {
-    border-bottom-right-radius: inherit;
-    border-bottom-left-radius: inherit;
-  }
-  .align-items-center {
-    align-items: center !important;
-  }
-  .justify-content-between {
-    justify-content: space-between !important;
-  }
-  .d-flex {
-    display: flex !important;
-  }
-  .badge-primary {
-    color: #fff;
-    background-color: #007bff;
+  // .hero.is-primary {
+  //   background-color: green;
+  // }
+  .card-content {
+    margin-bottom: 1rem;
+    padding: 1rem;
   }
 
-  .badge {
-    display: inline-block;
-    padding: 0.25em 0.4em;
-    font-size: 75%;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    padding-right: 0.6em;
-    padding-left: 0.6em;
-    border-radius: 10rem;
-    &:empty {
-      display: none;
-    }
+}
+@media (max-width: $device-width) {
+  .navbar > .container .navbar-brand, .container > .navbar .navbar-brand {
+    margin-left: 1rem;
   }
-  .card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
+  // .hero.is-primary {
+  //   background-color: red;
+  // }
+  .card-content {
+    margin-bottom: 1rem;
+    padding: .5rem;
   }
- .card-content {
-   margin-bottom: 1rem;
- }
- a {
-   font-size: 16px;
- }
- .notification a:not(.button):not(.dropdown-item) {
-   text-decoration: none;
- }
- a:hover {
-   color: inherit;
- }
- .logo {
+  .card .media:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+}
+.section {
+  padding: 1rem;
+}
+
+.hero {
+  padding: 0;
+}
+.tabs:not(:last-child), .pagination:not(:last-child), .message:not(:last-child), .level:not(:last-child), .breadcrumb:not(:last-child), .highlight:not(:last-child), .block:not(:last-child), .title:not(:last-child), .subtitle:not(:last-child), .table-container:not(:last-child), .table:not(:last-child), .progress:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .box:not(:last-child) {
+  margin-bottom: 0;
+}
+// .container > .navbar .navbar-brand,
+// .navbar > .container .navbar-brand {
+//   margin-left: 0;
+// }
+
+.category {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-header {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  border-radius: 0.25rem;
+}
+
+.list-group-item + .list-group-item {
+  border-top-width: 0;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.list-group-item:last-child {
+  border-bottom-right-radius: inherit;
+  border-bottom-left-radius: inherit;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.badge-primary {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  padding-right: 0.6em;
+  padding-left: 0.6em;
+  border-radius: 10rem;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
+
+
+
+a {
+  font-size: 16px;
+}
+
+.notification a:not(.button):not(.dropdown-item) {
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+}
+
+.logo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,7 +170,6 @@
   font-size: 30px;
   color: white;
   text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
-
   /* span 是内联元素没有动画效果 需要改变display值 */
   span {
     cursor: pointer;
