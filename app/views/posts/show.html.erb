@@ -2,29 +2,26 @@
 <section class="section">
   <div class="container">
     <nav class="level">
-      <div class="level-left">
-        <p class="level-item">
-          <strong><%= @post.title %></strong>
-        </p>
+      <p class="level-item"><%= @post.title %></strong></p>
+      <div>
+        <% if admin_signed_in? %>
+          <%= link_to 'Edit', edit_post_path(@post), class: 'button is-small' %>
+          <%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "主人真的要删除我吗?" }, class: 'button is-danger is-small' %>
+        <% end %>
       </div>
-      <% if admin_signed_in? %>
-      <div class="level-left">
-        <p class="level-item"><%= link_to 'Edit', edit_post_path(@post), class: 'button' %></p>
-        <p class="level-item"><%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "主人真的要删除我吗?" }, class: 'button is-danger' %></p>
-      </div>
-      <% end %>
     </nav>
     <hr />
     <div class="content"><%= @post.content %></div>
   </div>
 </section>
+
 <section class="section comments">
   <div class="container">
-    <h2 class="subtitle is-5">评论: <strong><%= @post.comments.count %></strong> </h2>
+    <div class="subtitle is-5">评论: <%= @post.comments.count %></div>
     <%= render @post.comments %>
     <div class="commnet-form">
       <hr />
-      <h3 class="subtitle is-3">评论区</h3>
+      <div class="subtitle is-5">评论区</div>
       <%= render 'comments/form' %>
     </div>
   </div>
