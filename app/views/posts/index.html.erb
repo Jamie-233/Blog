@@ -13,7 +13,7 @@
                         <p class="title is-4"><%= link_to post.title, post %></p>
                       </div>
                     </div>
-                    <div class="content"><%= post.content %></div>
+                    <div class="content"><%= post.content.length >= 40 ? post.content.slice(0, 40) + ' ...' : post.content %></div>
                      <div class="comment-count">
                       <!-- <span class="tag is-rounded"><%# comment count %></span> -->
                     </div>
@@ -25,7 +25,7 @@
         </div>
       </div>
 
-    <div class="container mt-3">
+    <div id="category" class="container mt-3">
       <div class="category">
         <div class="card-header active">类别</div>
         <div class="card-body">
@@ -40,21 +40,6 @@
         </div>
       </div>
     </div>
-
-      <!-- <div class="container" style="height: 300px;">
-        <div class="tile is-parent">
-          <article class="tile is-child notification is-info">
-            <div class="types">
-              <p class="title">类别</p>
-              <a>Ruby on Rails</a>
-              <a>Python</a>
-              <a>JavaScriat</a>
-              <a>Linux</a>
-              <a>Other</a>
-            </div>
-          </article>
-        </div>
-      </div> -->
     </div>
   </div>
 </section>

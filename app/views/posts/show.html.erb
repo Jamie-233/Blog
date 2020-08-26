@@ -2,7 +2,7 @@
 <section class="section">
   <div class="container">
     <nav class="level">
-      <p class="level-item"><%= @post.title %></strong></p>
+      <p class="level-item"><%= @post.title %></p>
       <div>
         <% if admin_signed_in? %>
           <%= link_to 'Edit', edit_post_path(@post), class: 'button is-small' %>

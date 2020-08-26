@@ -7,44 +7,76 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
     <section class="hero is-primary">
-    <div class="hero-head">
-      <nav class="navbar fixed-top sticky-top">
-        <div class="container">
-          <div class="navbar-brand">
-            <a class="logo" href="/">
-              <span>简</span>
-              <span>存</span>
-            </a>
-            <!-- <a class="navbar-item" href="/"><%# <%= image_tag("bulma.png", :alt => "Logo") %> %></a> -->
-          </div>
-          <div id="navbarMenuHeroA" class="navbar-menu">
-            <div class="navbar-end">
-              <%# <%= link_to "Home", root_path, class: "navbar-item" %>
-              <% if admin_signed_in? %>
-                <%= link_to "Create", new_post_path, class: "navbar-item" %>
-                <%= link_to current_admin.email, edit_admin_registration_path, class: 'navbar-item' %>
-                <%= link_to "Logout", destroy_admin_session_path, method: :delete, class: 'navbar-item' %>
-                <%# <%= link_to "Login", new_admin_session_path , class: 'navbar-item' %>
-                <%# <%= link_to "Sing up", new_admin_registration_path, class: "navbar-item" %>
-              <% end %>
-              <!-- <a class="navbar-item">About</a> -->
+      <div class="hero-head">
+        <nav class="navbar fixed-top sticky-top">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="logo" href="/">
+                <span>简</span>
+                <span>存</span>
+              </a>
+              <label id="menu-toggle" class="menu-label" for="menu-checkbox">菜单</label>
+              <input id="menu-checkbox" type="checkbox">
+              <div class="dropdown-menu dropdown-menu-right show">
+                <a href="/posts?cate=1" class="dropdown-item has-icon">
+                  <i class="fas fa-user"></i>
+                  Linux
+                </a>
+                <a href="/posts?cate=2" class="dropdown-item has-icon">
+                  <i class="fas fa-wallet"></i>
+                  JavaScriat
+                </a>
+                <a href="/user/invite" class="dropdown-item has-icon">
+                  <i class="fas fa-laugh-squint"></i>
+                  Node.js
+                </a>
+                <div class="dropdown-divider"></div>
+                <% if admin_signed_in? %>
+                  <a href="/admin/sign_out" class="dropdown-item has-icon text-danger">
+                    <i class="fas fa-sign-out-alt"></i>
+                    退出登录
+                  </a>
+                <% end %>
+              </div>
+              <!-- <a class="navbar-item" href="/"><%# <%= image_tag("bulma.png", :alt => "Logo") %> %></a> -->
             </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-    </section>
-    <% if notice %><div class="notification is-primary is-light"><strong><%= notice %></strong></div><% end %>
-    <% if alert %><div class="notification is-danger is-light"><strong><%= alert %></strong></div><% end %>
-    <%= %>
-    <%= yield %>
-    <%# <%= Time.now %>
-  </body>
-</html>
+            <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+                <%# <%= link_to "Home", root_path, class: "navbar-item" %>
+                  <% if admin_signed_in? %>
+                    <%= link_to "create", new_post_path, class: "navbar-item" %>
+                    <div class="navbar-item"><%= current_admin.email %></div>
+                    <%# <%= link_to current_admin.email, edit_admin_registration_path, class: 'navbar-item' %>
+                      <%= link_to "logout", destroy_admin_session_path, method: :delete, class: 'navbar-item' %>
+                      <%# <%= link_to "Login", new_admin_session_path , class: 'navbar-item' %>
+                        <%# <%= link_to "Sing up", new_admin_registration_path, class: "navbar-item" %><% end %>
+                        <!-- <a class="navbar-item">About</a> -->
+                      </div>
+                    </div>
+
+                  </div>
+                </nav>
+              </div>
+            </section>
+            <% if notice %>
+              <div class="notification is-primary is-light">
+                <strong><%= notice %></strong>
+              </div>
+            <% end %>
+            <% if alert %>
+              <div class="notification is-danger is-light">
+                <strong><%= alert %></strong>
+              </div>
+            <% end %>
+            <%= %>
+            <%= yield %>
+            <%# <%= Time.now %>
+            </body>
+          </html>
