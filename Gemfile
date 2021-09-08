@@ -73,7 +73,7 @@ group :development do
   # command: (2) bundle exec guard
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   # Make errirs better looking
-  gem 'better_errors', '~> 2.7', '>= 2.7.1'
+  gem 'better_errors', '~> 2.8'
 end
 
 group :test do
